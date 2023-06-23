@@ -1,5 +1,6 @@
 # Fake news detection library
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pickle
 import pandas as pd
 import os
@@ -22,6 +23,7 @@ from sklearn.decomposition import LatentDirichletAllocation
 
 
 app = Flask(__name__)
+CORS(app)
 
 # FakeNews Detection Model
 model = pickle.load(open('./model/model.pkl', 'rb'))
